@@ -1,4 +1,3 @@
-import Spline from '@splinetool/react-spline';
 import { Calendar, MessageCircle } from 'lucide-react';
 
 export default function Hero() {
@@ -8,12 +7,14 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-b from-white to-blue-50">
+      {/* Background image without 3D to avoid dark overlay issues */}
       <div className="absolute inset-0">
-        <Spline
-          scene="https://prod.spline.design/6f1qUuPVPvv4g7y7/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
+        <img
+          src="https://images.unsplash.com/photo-1604882357860-e043ac04795c?q=80&w=1600&auto=format&fit=crop"
+          alt="Trattamento fisioterapico presso StudioMeb"
+          className="w-full h-full object-cover object-center opacity-80"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/80" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/85" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-6 py-24 grid md:grid-cols-2 gap-12">
@@ -49,8 +50,8 @@ export default function Hero() {
         <div className="relative">
           <div className="rounded-2xl overflow-hidden shadow-xl ring-1 ring-slate-900/5">
             <img
-              src="https://images.unsplash.com/photo-1604882357860-e043ac04795c?q=80&w=1600&auto=format&fit=crop"
-              alt="Trattamento fisioterapico presso StudioMeb"
+              src="https://images.unsplash.com/photo-1606813907291-76a3608e8a6a?q=80&w=1600&auto=format&fit=crop"
+              alt="Il team di StudioMeb"
               className="w-full h-[380px] object-cover"
             />
           </div>
