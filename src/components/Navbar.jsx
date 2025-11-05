@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
 export default function Navbar() {
@@ -20,32 +21,37 @@ export default function Navbar() {
     scrolled ? 'bg-white/90 backdrop-blur-md border-blue-100' : 'bg-transparent border-transparent'
   }`;
 
-  const LinkItem = ({ href, label }) => (
-    <a
-      href={href}
+  const LinkItem = ({ to, label }) => (
+    <Link
+      to={to}
       className="text-sm md:text-base text-slate-700 hover:text-blue-700 transition-colors"
       onClick={() => setOpen(false)}
     >
       {label}
-    </a>
+    </Link>
   );
 
   return (
     <header className={navClasses}>
       <nav className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#home" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
             <div className="h-9 w-9 rounded-full bg-blue-600 text-white grid place-items-center font-semibold">SM</div>
             <div className="leading-tight">
               <div className="font-semibold text-slate-900 group-hover:text-blue-700">StudioMeb</div>
               <div className="text-xs text-slate-500">Fisioterapia e Benessere</div>
             </div>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <LinkItem href="#servizi" label="Servizi" />
-            <LinkItem href="#chisiamo" label="Chi siamo" />
-            <LinkItem href="#contatti" label="Contatti" />
+            <LinkItem to="/servizi" label="Servizi" />
+            <LinkItem to="/chi-siamo" label="Chi siamo" />
+            <a
+              href="/#contatti"
+              className="text-sm md:text-base text-slate-700 hover:text-blue-700 transition-colors"
+            >
+              Contatti
+            </a>
             <a
               href={whatsappHref}
               target="_blank"
@@ -55,7 +61,7 @@ export default function Navbar() {
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
             <a
-              href="#prenota"
+              href="/#prenota"
               className="inline-flex items-center gap-2 rounded-full border border-blue-600 text-blue-700 px-4 py-2 text-sm hover:bg-blue-50"
             >
               <Phone className="h-4 w-4" /> Prenota
@@ -73,9 +79,15 @@ export default function Navbar() {
 
         {open && (
           <div className="md:hidden pb-6 flex flex-col gap-4">
-            <LinkItem href="#servizi" label="Servizi" />
-            <LinkItem href="#chisiamo" label="Chi siamo" />
-            <LinkItem href="#contatti" label="Contatti" />
+            <LinkItem to="/servizi" label="Servizi" />
+            <LinkItem to="/chi-siamo" label="Chi siamo" />
+            <a
+              href="/#contatti"
+              className="text-sm md:text-base text-slate-700 hover:text-blue-700 transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              Contatti
+            </a>
             <a
               href={whatsappHref}
               target="_blank"

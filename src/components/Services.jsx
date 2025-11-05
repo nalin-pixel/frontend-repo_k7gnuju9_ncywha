@@ -1,4 +1,5 @@
 import { Activity, Heart, Sparkles, ArrowRight, MapPin, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const categories = [
   {
@@ -17,7 +18,7 @@ const categories = [
       'Magnetoterapia',
       'Elettroterapia (TENS, Diadinamica, Ionoforesi, Elettrostimolazione)'
     ],
-    href: '#servizi-fisioterapia'
+    href: '/servizi/fisioterapia'
   },
   {
     icon: Heart,
@@ -31,7 +32,7 @@ const categories = [
       'Massaggi olistici e rilassanti',
       'Yoga terapeutico e posturale'
     ],
-    href: '#servizi-benessere'
+    href: '/servizi/benessere'
   },
   {
     icon: Sparkles,
@@ -42,7 +43,7 @@ const categories = [
       'Consulenze: ortopedia, fisiatria, neurologia, nutrizione, psicologia',
       'Corsi e workshop di movimento e benessere'
     ],
-    href: '#servizi-altro'
+    href: '/servizi/altro'
   }
 ];
 
@@ -52,7 +53,7 @@ export default function Services() {
       <div className="absolute inset-x-0 -top-10 h-40 bg-gradient-to-b from-blue-50 to-transparent pointer-events-none" />
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">Trattamenti personalizzati</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 hover:text-blue-700 transition-colors">Trattamenti personalizzati</h2>
           <p className="mt-3 text-slate-600">
             Un percorso costruito su di te: valutazione accurata, obiettivi chiari, risultati misurabili.
           </p>
@@ -60,24 +61,21 @@ export default function Services() {
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {categories.map((cat) => (
-            <div key={cat.title} className="group rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-all bg-white">
-              <div className="h-11 w-11 rounded-xl bg-blue-600 text-white grid place-items-center shadow-sm">
+            <Link key={cat.title} to={cat.href} className="group rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-all bg-white block hover:border-blue-200">
+              <div className="h-11 w-11 rounded-xl bg-blue-600 text-white grid place-items-center shadow-sm group-hover:bg-blue-700 transition-colors">
                 <cat.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-xl font-semibold text-slate-900">{cat.title}</h3>
+              <h3 className="mt-4 text-xl font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">{cat.title}</h3>
               <p className="mt-2 text-slate-600 text-sm">{cat.desc}</p>
               <ul className="mt-4 space-y-2 text-sm text-slate-600 list-disc list-inside">
                 {cat.items.slice(0, 4).map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <a
-                href={cat.href}
-                className="mt-5 inline-flex items-center gap-2 text-blue-700 font-medium hover:gap-3 transition-all"
-              >
+              <span className="mt-5 inline-flex items-center gap-2 text-blue-700 font-medium group-hover:gap-3 transition-all">
                 Scopri di più <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+              </span>
+            </Link>
           ))}
         </div>
 

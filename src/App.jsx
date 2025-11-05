@@ -20,7 +20,7 @@ export default function App() {
               />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">Chi siamo</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 hover:text-blue-700 transition-colors">Chi siamo</h2>
               <p className="mt-4 text-slate-600">
                 Siamo un team di fisioterapisti e professionisti della salute. Uniamo competenza clinica, ascolto e
                 tecnologie efficaci per accompagnarti verso il recupero e la prevenzione. Ogni percorso è costruito su
@@ -31,7 +31,7 @@ export default function App() {
                 <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-blue-600" /> Trattamenti manuali e strumentali</li>
                 <li className="flex items-start gap-2"><span className="mt-1 h-2 w-2 rounded-full bg-blue-600" /> Educazione al movimento e prevenzione</li>
               </ul>
-              <a href="#servizi" className="mt-6 inline-block rounded-full bg-blue-600 text-white px-5 py-3 hover:bg-blue-700">Scopri i nostri trattamenti</a>
+              <a href="/chi-siamo" className="mt-6 inline-block rounded-full border border-blue-600 text-blue-700 px-5 py-3 hover:bg-blue-50">Scopri di più</a>
             </div>
           </div>
         </section>
